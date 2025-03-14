@@ -1,12 +1,19 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  standalone: true,
+  imports: [FormsModule]
 })
 export class AppComponent {
-  title = 'FirstAngularProject';
+  amount: number = 0;
+  exchangeRate: number = 1;
+  convertedAmount: number = 0;
+
+  convert() {
+    this.convertedAmount = this.amount * this.exchangeRate;
+  }
 }
